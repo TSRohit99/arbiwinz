@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# About ArbiWinz
 
-## Getting Started
+ArbiWinz is a decentralized lottery platform built on the Arbitrum network, offering a transparent and secure way to participate in fair games of chance. Leveraging the power of Chainlink VRF (Verifiable Random Function), we ensure that all winner selections are provably fair and cannot be manipulated. Our goal is to bring trust, simplicity, and fun to decentralized gaming.
 
-First, run the development server:
+## Key Features
+- Guaranteed Fair Play: All random outcomes are powered by Chainlink VRF, ensuring complete transparency.
+- Secure & Fast Transactions: Built on the Arbitrum blockchain for high-speed, low-cost, and secure operations.
+- Open Source Smart Contract: Fully verified and open for inspection, reinforcing trust in our platform.
+- Instant Payouts: Winners receive their rewards immediately after the draw.
+
+## Prize Distribution
+- 🥇 50% for the 1st place winner
+- 🥈 20% for the 2nd place winner
+- 🥉 15% for the 3rd place winner
+- 📜 15% as a protocol fee to sustain operations
+### How It Works
+- Enter the Lottery: Participate by sending a minimum of 0.0005 ETH directly to the lottery's smart contract address or via the platform’s wallet connection.
+- Track Participation: Monitor the prize pool and participant list in real time.
+- Roll the Draw: Once a minimum of three participants have joined, anyone can trigger the draw.
+- Win Big: Winners are chosen randomly, with funds distributed instantly upon selection.
+## System Diagrams and User Flow
+![diagram-export-11-19-2024-12_54_51-PM](https://github.com/user-attachments/assets/4d5fc1e2-7d5b-45c6-956c-c36ec414d68a)
+![diagram-export-11-19-2024-12_55_09-PM](https://github.com/user-attachments/assets/5a10b75e-d630-45bb-b565-26f7efa9b1be)
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+
+`NEXT_PUBLIC_ARBISCAN_API_KEY`
+
+## Run Locally
+
+Clone the project
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone https://github.com/TSRohit99/arbiwinz
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Go to the project directory
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  cd arbiwinz
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Install dependencies
 
-## Learn More
+```bash
+  npm install --legacy-peer-deps
+```
 
-To learn more about Next.js, take a look at the following resources:
+Start the server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+  npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Author
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Contact [@Rohit](https://tsrohit99.github.io) for any queries or contributions.
