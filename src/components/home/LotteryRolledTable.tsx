@@ -16,7 +16,12 @@ import { useLottery } from "@/context/ContextProvider";
 const LotteryRolledTable =  () => {
     
   const { depositStats , currentRollId} = useLottery();
-  const totalRolls = parseInt(currentRollId.toString()) == 0? 1: parseInt(currentRollId.toString()) - 1
+  const totalRolls = currentRollId != null && parseInt(currentRollId.toString()) === 0
+  ? 1
+  : currentRollId != null
+  ? parseInt(currentRollId.toString()) - 1
+  : 0; // Fallback in case currentRollId is null or undefined
+
 
 
   return (

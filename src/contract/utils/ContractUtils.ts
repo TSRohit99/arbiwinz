@@ -131,7 +131,6 @@ export const getMinEth = async (): Promise<any> => {
   try {
     const contract = getContract();
     const minEntry = await contract.getFunction('getMinEthAmount').call(null); 
-    console.log(minEntry);
     return ethers.formatEther(minEntry);
   } catch (error) {
     console.error('Error fetching getMinEth balance:', error);

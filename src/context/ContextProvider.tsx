@@ -99,7 +99,7 @@ export const LotteryProvider: React.FC<{ children: React.ReactNode }> = ({ child
       if(val?.txHash){
       toast.success("You have Succesfully Deposited!");
       setDepositStats((prevDepositStats) => [...(prevDepositStats ?? []), val]);
-      setCpLength((prev) => (parseInt(prev) + 1).toString());
+      setCpLength((prev) => (prev != null && !isNaN(parseInt(prev)) ? (parseInt(prev) + 1).toString() : "1"));
       setPoolValue((prev)=>prev+val.amount);
      }else{
       toast.error("You need to confirm the txn!");
@@ -124,7 +124,7 @@ export const LotteryProvider: React.FC<{ children: React.ReactNode }> = ({ child
       if(val != null){
       toast.success("Draw rolled successfully!");
       setDepositStats(null);
-      setCurrentRollId((prev) => parseInt(prev.toString()) + 1);
+      setCurrentRollId((prev) => (prev != null ? parseInt(prev.toString()) + 1 : 1));
     }
     } catch (err) {
       toast.error("Failed to roll draw'");

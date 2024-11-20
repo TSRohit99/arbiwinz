@@ -1,15 +1,21 @@
 "use client";
 import React from "react";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Trophy, Medal, Award } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "../ui/card";
 import { useLottery } from "@/context/ContextProvider";
 
-
 const WinnersTable = () => {
   const { winnerStats, currentRollId } = useLottery();
-  
+
   const reversedStats = [...(winnerStats || [])].reverse();
 
   // Ranking icons and colors for top 3 positions
@@ -31,7 +37,12 @@ const WinnersTable = () => {
       <CardHeader>
         <CardTitle className="text-white flex items-center gap-2">
           <Trophy size={20} className="text-blue-400" />
-          Latest Winners (RollID : {parseInt(currentRollId.toString())-1})
+          Latest Winners
+          {currentRollId != null  ? (
+            <> (RollID : {parseInt(currentRollId.toString()) - 1})</>
+          ) : (
+            " (Loading RollID...)"
+          )}
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -56,9 +67,12 @@ const WinnersTable = () => {
                       </div>
                     </TableCell>
                     <TableCell className="text-white">
-                      {winner?.address?.slice(0, 4)}...{winner?.address?.slice(-4)}
+                      {winner?.address?.slice(0, 4)}...
+                      {winner?.address?.slice(-4)}
                     </TableCell>
-                    <TableCell className="text-blue-400">{winner.reward} ETH</TableCell>
+                    <TableCell className="text-blue-400">
+                      {winner.reward} ETH
+                    </TableCell>
                     <TableCell>
                       <Badge
                         variant="default"
