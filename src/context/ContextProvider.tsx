@@ -129,7 +129,7 @@ export const LotteryProvider: React.FC<{ children: React.ReactNode }> = ({ child
     } catch (err) {
       toast.error("Failed to roll draw'");
       setError('Failed to roll draw');
-      console.log(err);
+      console.error(err);
     } finally {
       setLoading(false);
     }

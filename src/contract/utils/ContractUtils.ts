@@ -109,7 +109,7 @@ export async function connectAndFund() : Promise<BaseRes | null> {
       }
       
   } catch (error) {
-      console.log("Error in connecting or funding:", error);
+      console.error("Error in connecting or funding:", error);
       return null;
   }
 }
@@ -157,7 +157,7 @@ export const getCurrentParticipantsLength = async (): Promise<any> => {
     return length;
     
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return null;
   }
 }
@@ -223,7 +223,7 @@ export const getLatestWinnerStats = async () : Promise<WinnerStats[] | null> => 
     return simplifiedTransactions;
 
   } catch (error) {
-    console.log('Error fetching lottery events:', error);
+    console.error('Error fetching lottery events:', error);
     return null;
 }
 };
@@ -239,7 +239,7 @@ export const rollDraw = async (): Promise<any> => {
     return response;
   } catch (error) {
     toast.error("COuldnt roll the draw")
-    console.log('Error rolling draw:', error);
+    console.error('Error rolling draw:', error);
     return null;
   }
 };
