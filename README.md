@@ -19,7 +19,10 @@ ArbiWinz is a decentralized lottery platform built on the Arbitrum network, offe
 - Roll the Draw: Once a minimum of three participants have joined, anyone can trigger the draw.
 - Win Big: Winners are chosen randomly, with funds distributed instantly upon selection.
 ## System Diagrams and User Flow
-![diagram-export-11-19-2024-12_54_51-PM](https://github.com/user-attachments/assets/4d5fc1e2-7d5b-45c6-956c-c36ec414d68a)
+ArbiWinz Backend System Architecture
+![diagram-export-11-22-2024-11_37_51-PM](https://github.com/user-attachments/assets/b0184a68-efcf-4c24-9673-b3955ce24f64)
+
+User Flow
 ![diagram-export-11-19-2024-12_55_09-PM](https://github.com/user-attachments/assets/5a10b75e-d630-45bb-b565-26f7efa9b1be)
 
 ## Environment Variables
