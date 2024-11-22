@@ -39,7 +39,7 @@ const WinnersTable = () => {
           <Trophy size={20} className="text-blue-400" />
           Latest Winners
           {currentRollId != null  ? (
-            <> (RollID : {parseInt(currentRollId.toString()) - 1})</>
+            <> (RollID : {parseInt(currentRollId.toString()) === 0 ? 0 : parseInt(currentRollId.toString()) - 1})</>
           ) : (
             " (Loading RollID...)"
           )}
