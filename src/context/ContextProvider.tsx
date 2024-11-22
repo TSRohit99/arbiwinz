@@ -120,15 +120,28 @@ export const LotteryProvider: React.FC<{ children: React.ReactNode }> = ({ child
     try {
       setLoading(true);
       setError(null);
-      const val = await rollDraw();
-      if(val != null){
-      toast.success("Draw rolled successfully!");
-      setDepositStats(null);
-      setCurrentRollId((prev) => (prev != null ? parseInt(prev.toString()) + 1 : 1));
-    }
+  
+      const toastId = toast.loading("Executing the rollDraw() function...", {
+        duration: 12000,
+      });
+      const val = await rollDraw(); // Ensure this function handles errors gracefully.
+      
+      if (val !== null) {
+        toast.dismiss(toastId);
+        toast.success("Draw rolled successfully, changes will be reflected soon! (<15s)", {
+          duration: 15000,
+        });
+        setTimeout(() => {
+          window.location.reload(); 
+        }, 15000);
+
+       
+      } else {
+        console.error("rollDraw() returned null.");
+      }
     } catch (err) {
-      toast.error("Failed to roll draw'");
-      setError('Failed to roll draw');
+      toast.error("Failed to roll draw");
+      setError("Failed to roll draw");
       console.error(err);
     } finally {
       setLoading(false);
