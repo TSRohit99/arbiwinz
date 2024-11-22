@@ -5,7 +5,7 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "@radix-ui/react-tooltip";
-import { Info, Check, Copy } from "lucide-react";
+import { Info, Check, Copy, Camera, QrCode } from "lucide-react";
 import React, { useState } from "react";
 import { Button } from "../ui/button";
 import {
@@ -16,10 +16,12 @@ import {
   CardContent,
 } from "../ui/card";
 import { useLottery } from "@/context/ContextProvider";
-import toast from "react-hot-toast";
+import WalletQR from "./ShowQRMoal";
 
 const ParticipationCard = () => {
   const [copied, setCopied] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+
 
   const { LOTTERY_ADDRESS, entryFee, handleDeposit,currentRollId } = useLottery();
   const contractAddress = LOTTERY_ADDRESS;
@@ -34,7 +36,8 @@ const ParticipationCard = () => {
     return `${address.slice(0, 8)}...${address.slice(-8)}`;
   };
 
-  return (
+  return ( 
+    <>
     <Card className="max-w-3xl mx-auto mb-16 bg-blue-900/20 border-blue-500/20 backdrop-blur-sm">
   <CardHeader>
     <CardTitle className="text-2xl text-white text-center">
@@ -86,7 +89,8 @@ const ParticipationCard = () => {
             {trimAddress(contractAddress)}
           </span>
         </p>
-        <Button
+       <div>
+       <Button
           variant="ghost"
           size="sm"
           onClick={handleCopy}
@@ -98,6 +102,16 @@ const ParticipationCard = () => {
             <Copy className="w-4 h-4 text-blue-400" />
           )}
         </Button>
+
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => setModalOpen(true)}
+          className="hover:bg-blue-800/20 h-8 w-8 p-0"
+        >
+          <QrCode className="w-4 h-4 text-blue-400"  />
+        </Button>
+       </div>
       </div>
     </div>
     <div className="bg-yellow-500/10 rounded-lg p-3 border border-yellow-500/20">
@@ -116,7 +130,12 @@ const ParticipationCard = () => {
   </CardContent>
 </Card>
 
+<WalletQR address={contractAddress} isOpen={modalOpen} onClose={ () => setModalOpen(false)}/>
+
+</>
+
   );
+  
 };
 
 export default ParticipationCard;

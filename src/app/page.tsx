@@ -17,15 +17,14 @@ import ArbitrumNetworkModal from "@/components/home/Modal";
 import { checkIfItsArbitrumone } from "@/contract/utils/ContractUtils";
 
 const Home = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const checkNetwork = async () => {
       try {
         const res = await checkIfItsArbitrumone();
-        if (res) {
-          setIsOpen(false);
-        }
+          setIsOpen(!res);
+
       } catch (error) {
         console.error("Error at Home", error);
       }

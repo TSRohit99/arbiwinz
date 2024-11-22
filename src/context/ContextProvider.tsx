@@ -38,6 +38,7 @@ export const LotteryProvider: React.FC<{ children: React.ReactNode }> = ({
 
   // Function to fetch data
   const fetchData = async () => {
+    console.log("fetching all data");
     try {
       const [poolBal, entryFee1, roll, depositStatsData, winnerStatsData, cpl] =
         await Promise.all([
@@ -143,20 +144,22 @@ export const LotteryProvider: React.FC<{ children: React.ReactNode }> = ({
         setTimeout(async () => {
           try {
             toast.success("Updated stats fetched successfully!");
-            
+
             // Update deposit stats
             setDepositStats(null);
-            
+            setPoolValue((prev) =>
+              (parseFloat(prev) - parseFloat(cpLength) * 0.0005).toString()
+            );
+            setCpLength("0");
             // Fetch and update winner stats
             const winners: WinnerStats[] | null = await getLatestWinnerStats();
             setWinnerStats(winners);
+            setCurrentRollId((prev) => parseInt(prev.toString()) + 1);
           } catch (error) {
             console.error("Error updating stats:", error);
             toast.error("Failed to update stats.");
           }
         }, 10000);
-        
-
       } else {
         console.error("rollDraw() returned null.");
       }
