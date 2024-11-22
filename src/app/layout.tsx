@@ -15,7 +15,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "ArbiWinz | Win big on Arbitrum",
-  description: "ArbiWInz is the fair lottery platform",
+  description: "ArbiWinz is a decentralized lottery platform on the Arbitrum network, ensuring transparent and provably fair games using Chainlink VRF. Designed for trust, simplicity, and fun in decentralized gaming.",
 };
 
 export default function RootLayout({
