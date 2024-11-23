@@ -29,7 +29,7 @@ const PrizePool = () => {
                 <div className="flex items-center justify-center gap-2 mb-6">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                   <span className="text-blue-300/80 text-sm">
-                    Live prize pool
+                    Live Ethereum prize pool
                   </span>
                 </div>
 
@@ -38,8 +38,8 @@ const PrizePool = () => {
                 </p>
 
                 <p className="text-blue-300/80 text-sm max-w-md mx-auto">
-                  Winners are selected randomly using <a href="https://docs.chain.link/vrf" target="_blank" rel="noopener noreferrer">Chainlink VRF technology
-               </a></p>
+                  Winners are selected randomly using <a href="https://docs.chain.link/vrf" target="_blank" rel="noopener noreferrer">Chainlink VRF technology</a>.
+                   Do not miss your chance to win big in this secure and fair crypto lottery!</p>
               </div>
             </div>
           </div>
